@@ -1,4 +1,5 @@
 const CLIENT_ID = '6ecf7f42beba46b285d31a8fb7918655';
+// for production uri
 const REDIRECT_URI = 'http://jammming-farulivan.surge.sh/';
 // for development uri
 // const REDIRECT_URI = 'http://localhost:3000/';
