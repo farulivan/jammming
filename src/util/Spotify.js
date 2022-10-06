@@ -1,5 +1,7 @@
 const CLIENT_ID = '6ecf7f42beba46b285d31a8fb7918655';
 const REDIRECT_URI = 'http://jammming-farulivan.surge.sh/';
+// for development uri
+// const REDIRECT_URI = 'http://localhost:3000/';
 let accessToken;
 
 const Spotify = {
@@ -58,15 +60,15 @@ const Spotify = {
             .then(response => response.json())
             .then(jsonResponse => {
                 userID = jsonResponse.id
-                return fetch(`/v1/users/${userID}/playlists`,{
+                return fetch(`https://api.spotify.com/v1/users/${userID}/playlists`,{
                     headers: headers,
                     method: 'POST',
-                    body: JSON.stringify({ name : name })
+                    body: JSON.stringify({ name: name })
                 })
                 .then(response => response.json())
                 .then(jsonResponse => {
                     const playlistID = jsonResponse.id
-                    return fetch(`/v1/users/${userID}/playlists/${playlistID}/tracks`, {
+                    return fetch(`https://api.spotify.com/v1/users/${userID}/playlists/${playlistID}/tracks`, {
                         headers: headers,
                         method: 'POST',
                         body: JSON.stringify({ uris: trackURIs })
